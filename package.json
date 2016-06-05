@@ -1,0 +1,16 @@
+{
+  "name": "aws-lambda-rss-feed-from-s3",
+  "version": "1.0.0",
+  "description": "An AWS Lambda function to generate an RSS feed from files in S3",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.3.16",
+    "rss": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ben Johnson",
+  "license": "MIT"
+}
