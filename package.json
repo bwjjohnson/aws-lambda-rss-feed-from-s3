@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "An AWS Lambda function to generate an RSS feed from files in S3",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bwjjohnson/aws-lambda-rss-feed-from-s3.git"
+  },
   "dependencies": {
     "aws-sdk": "^2.3.16",
+    "node-lambda": "^0.8.5",
     "rss": "^1.2.1"
   },
   "devDependencies": {},
