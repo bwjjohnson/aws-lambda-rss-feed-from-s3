@@ -10,11 +10,13 @@
   "dependencies": {
     "aws-sdk": "^2.3.16",
     "node-lambda": "^0.8.5",
+    "pretty-data": "^0.40.0",
     "rss": "^1.2.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "./node_modules/node-lambda/bin/node-lambda package --packageDirectory build"
   },
   "author": "Ben Johnson",
   "license": "MIT"
