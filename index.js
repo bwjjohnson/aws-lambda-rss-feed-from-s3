@@ -144,25 +144,50 @@ function generateRSSFeed(){
     description: 'A feed for worship band members to get audio recordings of worship songs',
     feed_url: mediaURL + 'DCCBandRef.xml',
     site_url: mediaURL,
-    webMaster: 'webmaster@downtowncornerstone.org (Ben Johnson)',
+    webMaster: 'webmaster@downtowncornerstone.org (Web Master)',
     copyright: 'Downtown Cornerstone Church 2016',
     language: 'en',
     pubDate: new Date().toUTCString(),
     ttl: '60',
+    custom_namespaces: {
+      'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd'
+    },
+    custom_elements: [
+      {'itunes:category': [
+        {_attr: {
+          text: 'Religion & Spirituality'
+        }},
+        {'itunes:category': {
+          _attr: {
+            text: 'Christianity'
+          }
+        }}
+      ]},
+      {'itunes:owner': [
+        {'itunes:name': 'Web Master'},
+        {'itunes:email': 'webmaster@downtowncornerstone.org'}
+      ]},
+      {'itunes:image': {
+        _attr: {
+          href: 'http://media.downtowncornerstone.org/images/DCC-icon_85bk_itunes.jpg'
+        }
+      }},
+      {'itunes:explicit': 'no'},
+    ]
   });
 
   for (var i in bandAudioFiles){
+    if ( i >= maxItemsInRSSFeed ){break;}
     var file = bandAudioFiles[i];
     // console.log(file);
+    var title = file['date'] + " " + file['title']
     feed.item({
-      title: file['date'] + " " + file['title'],
-      summary: 'none',
-      description: 'none',
+      title: title,
+      description: title,
       url: mediaURL + file['Key'],
       date: file['LastModified'],
       enclosure: {url: mediaURL + file['Key']}
     });
-    if ( i >= maxItemsInRSSFeed ){break;}
   }
 
   var xml = pd.xml(feed.xml());
